@@ -1,0 +1,1212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shailesh Puranik - Staff SDET Engineer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #3b82f6;
+            --accent-color: #60a5fa;
+            --text-primary: #1f2937;
+            --text-secondary: #6b7280;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f9fafb;
+            --bg-card: #ffffff;
+            --border-color: #e5e7eb;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        [data-theme="dark"] {
+            --primary-color: #3b82f6;
+            --secondary-color: #2563eb;
+            --accent-color: #60a5fa;
+            --text-primary: #f9fafb;
+            --text-secondary: #d1d5db;
+            --bg-primary: #111827;
+            --bg-secondary: #1f2937;
+            --bg-card: #1f2937;
+            --border-color: #374151;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 10px 10px -5px rgba(0, 0, 0, 0.3);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--bg-primary);
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: var(--bg-card);
+            box-shadow: var(--shadow);
+            z-index: 1000;
+            transition: background 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-brand {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-primary);
+            transition: transform 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.1);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .profile-photo {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 5px solid white;
+            box-shadow: var(--shadow-lg);
+            object-fit: cover;
+            animation: fadeInDown 1s ease;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero-content .title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease 0.2s backwards;
+        }
+
+        .hero-contact {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 1rem 0;
+            animation: fadeInUp 1s ease 0.4s backwards;
+        }
+
+        .hero-contact a {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .hero-contact a:hover {
+            transform: translateY(-3px);
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+            animation: fadeInUp 1s ease 0.6s backwards;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: white;
+            color: var(--primary-color);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: var(--primary-color);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        /* Section Titles */
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            color: var(--primary-color);
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            border-radius: 2px;
+        }
+
+        /* Summary Section */
+        .summary {
+            background: var(--bg-secondary);
+        }
+
+        .summary-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: left;
+            font-size: 1.15rem;
+            line-height: 2.2;
+            color: var(--text-secondary);
+        }
+
+        .summary-content p {
+            margin-bottom: 1.25rem;
+            padding: 0 2rem;
+        }
+
+        .summary-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .summary-content strong {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .skill-category {
+            background: var(--bg-card);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .skill-category h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-tag {
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .skill-tag:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: scale(1.05);
+            border-color: var(--primary-color);
+        }
+
+        /* Experience Section */
+        .experience {
+            background: var(--bg-secondary);
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 3rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 3px;
+            background: linear-gradient(180deg, var(--primary-color), var(--accent-color));
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3rem;
+            background: var(--bg-card);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .timeline-item:hover {
+            transform: translateX(10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -3.4rem;
+            top: 2rem;
+            width: 20px;
+            height: 20px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            border: 4px solid var(--bg-primary);
+            box-shadow: var(--shadow);
+        }
+
+        .timeline-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .timeline-title {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        .timeline-company {
+            font-size: 1.2rem;
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .timeline-date {
+            background: var(--primary-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            white-space: nowrap;
+        }
+
+        .timeline-content ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .timeline-content li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: var(--text-secondary);
+        }
+
+        .timeline-content li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .project-card {
+            background: var(--bg-card);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-top: 4px solid var(--primary-color);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .project-card h3 {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-role {
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        .project-description {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .project-tools {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .tool-tag {
+            background: var(--primary-color);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+        }
+
+        /* Achievements Section */
+        .achievements {
+            background: var(--bg-secondary);
+        }
+
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .achievement-card {
+            background: var(--bg-card);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .achievement-card:hover {
+            transform: translateX(10px);
+        }
+
+        .achievement-icon {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .achievement-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .achievement-card p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Education Section */
+        .education-card {
+            background: var(--bg-card);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            max-width: 600px;
+            margin: 2rem auto;
+        }
+
+        .education-card h3 {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .education-details {
+            color: var(--text-secondary);
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--bg-card);
+            padding: 2rem;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .social-links a {
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--primary-color);
+            transform: scale(1.2);
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 1s ease;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--bg-card);
+                padding: 1rem;
+                box-shadow: var(--shadow);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .hero-content .title {
+                font-size: 1.2rem;
+            }
+
+            .hero-contact {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                width: 100%;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .timeline {
+                padding-left: 2rem;
+            }
+
+            .timeline-item::before {
+                left: -2.4rem;
+            }
+
+            .projects-grid,
+            .skills-grid,
+            .achievements-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .profile-photo {
+                width: 150px;
+                height: 150px;
+            }
+        }
+
+        /* Scroll to top button */
+        .scroll-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: var(--primary-color);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .scroll-top:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="nav-brand">SP</div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#achievements">Achievements</a></li>
+            </ul>
+            <div style="display: flex; gap: 1rem; align-items: center;">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-container">
+            <img src="profile-photo.png" alt="Shailesh Puranik" class="profile-photo">
+            <div class="hero-content">
+                <h1>Shailesh Puranik</h1>
+                <p class="title">Staff SDET Engineer | AI Safety & Test Automation Leader</p>
+                <div class="hero-contact">
+                    <a href="tel:+918939278247">
+                        <i class="fas fa-phone"></i> +91-8939278247
+                    </a>
+                    <a href="https://www.linkedin.com/in/shailesh-puranik-48218a277" target="_blank">
+                        <i class="fab fa-linkedin"></i> LinkedIn
+                    </a>
+                </div>
+                <div class="hero-buttons">
+                    <a href="#experience" class="btn btn-primary">View Experience</a>
+                    <a href="#projects" class="btn btn-secondary">See Projects</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Summary Section -->
+    <section class="summary" id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="summary-content">
+                <p><strong>Staff SDET Engineer with 13+ years of experience</strong> leading quality engineering teams and architecting test automation frameworks at scale.</p>
+                
+                <p>Expanding into <strong>AI / LLM quality engineering</strong> — red teaming agentic AI applications against OWASP-ASI threats, instrumenting evidence via LangSmith, and building production-style guardrails (input validation + PII redaction) for LLM agents.</p>
+                
+                <p>Proficient in <strong>AI-augmented development workflows</strong> using Cursor IDE (Skills, Subagents, MCPs) and Notion AI for scaled test automation enablement and SDLC optimization.</p>
+                
+                <p>Known for mentoring SDETs, driving shift-left adoption, and reducing production defects through scalable automation.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills" id="skills">
+        <div class="container">
+            <h2 class="section-title">Core Competencies</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3><i class="fas fa-robot"></i> AI-Augmented Development</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Cursor IDE</span>
+                        <span class="skill-tag">Cursor Skills</span>
+                        <span class="skill-tag">Subagents</span>
+                        <span class="skill-tag">MCP Integrations</span>
+                        <span class="skill-tag">Notion AI</span>
+                        <span class="skill-tag">AI-driven SDLC</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-shield-alt"></i> AI / LLM Quality Engineering</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">LangSmith</span>
+                        <span class="skill-tag">Red Teaming</span>
+                        <span class="skill-tag">OWASP-ASI</span>
+                        <span class="skill-tag">Prompt Injection</span>
+                        <span class="skill-tag">PII Guardrails</span>
+                        <span class="skill-tag">LLM-as-a-judge</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-code"></i> Test Automation</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Selenium</span>
+                        <span class="skill-tag">Cypress</span>
+                        <span class="skill-tag">Playwright</span>
+                        <span class="skill-tag">RestAssured</span>
+                        <span class="skill-tag">TestNG</span>
+                        <span class="skill-tag">Appium</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-laptop-code"></i> Programming</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">Python</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-cogs"></i> CI/CD & DevOps</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Jenkins</span>
+                        <span class="skill-tag">GitHub Actions</span>
+                        <span class="skill-tag">Bamboo</span>
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">Kubernetes</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-cloud"></i> Cloud & Tools</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">AWS</span>
+                        <span class="skill-tag">Azure</span>
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">Jira</span>
+                        <span class="skill-tag">JMeter</span>
+                        <span class="skill-tag">Postman</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="experience" id="experience">
+        <div class="container">
+            <h2 class="section-title">Professional Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <div>
+                            <div class="timeline-company">Trimble</div>
+                            <div class="timeline-title">Staff SDET Engineer</div>
+                        </div>
+                        <div class="timeline-date">Jul 2025 – Present</div>
+                    </div>
+                    <div class="timeline-content">
+                        <ul>
+                            <li><strong>Pioneered AI safety practices:</strong> Led red-teaming and guardrail implementation for an internal LLM banking agent — executed 77+ OWASP-ASI attacks (captured via LangSmith), then built a Python defense layer that reduced attack success from ~57% to ~30%, establishing the company's first AI security testing methodology.</li>
+                            <li><strong>Define enterprise-wide quality strategy:</strong> Lead and scale a team of 6+ SDET engineers while defining test automation standards, quality architecture patterns, and CI/CD best practices adopted across multiple product lines and engineering teams.</li>
+                            <li><strong>Enable org-level AI automation adoption:</strong> Architected a scalable AI-driven UI test automation framework using Cursor Skills, Subagents, and Playwright MCP that empowers both automation engineers and manual testers to rapidly author tests through AI-assisted workflows, accelerating automation development by ~60% and serving as the company standard for UI testing.</li>
+                            <li><strong>Drive platform-level API testing innovation:</strong> Designed an AI-powered API automation framework using RestAssured that enables product teams to auto-generate comprehensive test suites from Swagger/OpenAPI specifications, reducing API test development time by ~70% and standardized across 15+ microservices.</li>
+                            <li><strong>Establish reusable quality patterns:</strong> Standardized automation patterns, quality gates, and shift-left testing practices across engineering teams, improving test reliability, maintainability, and cross-team reusability while mentoring 3+ SDET Lead Engineers.</li>
+                            <li><strong>Influence release velocity:</strong> Drive continuous improvement initiatives in test coverage and release quality that support faster and safer production deployments across the engineering organization.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <div>
+                            <div class="timeline-company">Trimble</div>
+                            <div class="timeline-title">SDET Lead Engineer</div>
+                        </div>
+                        <div class="timeline-date">Jan 2023 – Jul 2025</div>
+                    </div>
+                    <div class="timeline-content">
+                        <ul>
+                            <li><strong>Built and led high-performing product QA team:</strong> Led and mentored a team of 4+ SDET engineers, owning the automation roadmap, sprint quality commitments, and test delivery for the core product line.</li>
+                            <li><strong>Delivered scalable UI automation:</strong> Implemented and maintained UI automation frameworks using Cypress for the product, increasing automated test coverage from 30% to 85% and reducing regression execution time by 50%.</li>
+                            <li><strong>Integrated continuous testing pipelines:</strong> Built reliable CI/CD test integration with Bamboo and GitHub Actions, enabling continuous execution of 500+ UI and API tests per sprint and catching defects before production.</li>
+                            <li><strong>Ensured product quality and velocity:</strong> Collaborated closely with product engineering and DevOps teams to enforce shift-left testing practices, identify high-impact quality gaps, and maintain sprint commitments.</li>
+                            <li><strong>Delivered measurable quality outcomes:</strong> Reduced production defects by 80% through proactive test coverage, risk-based testing strategies, and early defect detection, directly improving customer satisfaction scores.</li>
+                            <li><strong>Grew team technical capabilities:</strong> Mentored 4 junior SDET engineers through code reviews, design discussions, and best-practice sessions, improving team productivity by 40% and establishing repeatable automation patterns later adopted company-wide.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <div>
+                            <div class="timeline-company">Trimble</div>
+                            <div class="timeline-title">Senior SDET Engineer</div>
+                        </div>
+                        <div class="timeline-date">Jun 2018 – Dec 2022</div>
+                    </div>
+                    <div class="timeline-content">
+                        <ul>
+                            <li>Designed, developed and maintained automation frameworks using Selenium, RestAssured for enterprise applications, increasing test coverage and reducing regression cycle time by 70%.</li>
+                            <li>Spearheaded automation of functional, performance, and API tests, enabling faster feedback and higher test coverage.</li>
+                            <li>Collaborated with developers to define test cases and acceptance criteria, improving quality standards and defect resolution.</li>
+                            <li>Contributed to Agile ceremonies, ensuring quality objectives were met during sprint cycles.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <div>
+                            <div class="timeline-company">DXC Technologies</div>
+                            <div class="timeline-title">Associate Professional - Product Test</div>
+                        </div>
+                        <div class="timeline-date">May 2015 – May 2018</div>
+                    </div>
+                    <div class="timeline-content">
+                        <ul>
+                            <li>Developed test automation scripts using Selenium/Java, reducing manual testing by 200 hours per release.</li>
+                            <li>Led API testing with RestAssured, Postman, and SoapUI, ensuring service reliability.</li>
+                            <li>Integrated tests with Jira and HP-ALM for defect management and traceability.</li>
+                            <li>Conducted performance testing with JMeter, identifying bottlenecks and optimizing system performance.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <div>
+                            <div class="timeline-company">Photon Interactive</div>
+                            <div class="timeline-title">Trainee QA Engineer</div>
+                        </div>
+                        <div class="timeline-date">Jan 2014 – May 2015</div>
+                    </div>
+                    <div class="timeline-content">
+                        <ul>
+                            <li>Assisted in manual and automated testing, helping transition from manual to automated test scripts.</li>
+                            <li>Developed and executed basic Selenium WebDriver scripts for web and mobile applications.</li>
+                            <li>Contributed to regression testing and defect documentation, improving test coverage and quality.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects" id="projects">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3>Connected Forest SSO</h3>
+                    <span class="project-role">SDET Lead / Staff SDET</span>
+                    <p class="project-description">The Connected Forest SSO system secures user authentication across multiple applications with a single login, simplifies user management, integrates with identity providers, supports standard protocols, and ensures a seamless user experience.</p>
+                    <div class="project-tools">
+                        <span class="tool-tag">Selenium</span>
+                        <span class="tool-tag">RestAssured</span>
+                        <span class="tool-tag">TestNG</span>
+                        <span class="tool-tag">JMeter</span>
+                        <span class="tool-tag">Postman</span>
+                        <span class="tool-tag">Bamboo</span>
+                        <span class="tool-tag">Docker</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3>Datasync</h3>
+                    <span class="project-role">SDET Lead / Staff SDET</span>
+                    <p class="project-description">Enterprise data synchronization platform ensuring real-time data consistency across multiple systems and applications within the Trimble ecosystem.</p>
+                    <div class="project-tools">
+                        <span class="tool-tag">Cypress</span>
+                        <span class="tool-tag">RestAssured</span>
+                        <span class="tool-tag">TestNG</span>
+                        <span class="tool-tag">JMeter</span>
+                        <span class="tool-tag">GitHub Actions</span>
+                        <span class="tool-tag">Docker</span>
+                        <span class="tool-tag">ELK</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3>Lorenzo (NHS)</h3>
+                    <span class="project-role">Associate Professional Product Test</span>
+                    <p class="project-description">Lorenzo is a next-generation Electronic Medical Record (EMR) system used by NHS to provide real-time patient data to clinicians and administrators across care pathways. It integrates with patient administration and clinical systems for better decision-making and patient care.</p>
+                    <div class="project-tools">
+                        <span class="tool-tag">Selenium</span>
+                        <span class="tool-tag">TestNG</span>
+                        <span class="tool-tag">JIRA</span>
+                        <span class="tool-tag">HP-ALM</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3>Esurance</h3>
+                    <span class="project-role">Associate Tester</span>
+                    <p class="project-description">Esurance, a leading auto insurance provider, offers online car insurance services. The project focused on validating critical business requirements like claims processing, policy administration, and customer support systems.</p>
+                    <div class="project-tools">
+                        <span class="tool-tag">Selenium</span>
+                        <span class="tool-tag">TestNG</span>
+                        <span class="tool-tag">JIRA</span>
+                        <span class="tool-tag">HP-ALM</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3>Steps 2.0 (mHealth)</h3>
+                    <span class="project-role">Trainee QA Engineer</span>
+                    <p class="project-description">Steps 2.0 is a health tracking application used for tracking personal fitness and wellness goals (e.g., walking, running, cycling, weight loss).</p>
+                    <div class="project-tools">
+                        <span class="tool-tag">Selenium</span>
+                        <span class="tool-tag">TestNG</span>
+                        <span class="tool-tag">JIRA</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section class="achievements" id="achievements">
+        <div class="container">
+            <h2 class="section-title">Key Achievements</h2>
+            <div class="achievements-grid">
+                <div class="achievement-card">
+                    <div class="achievement-icon">🏆</div>
+                    <h3>Trimble India Hackathon</h3>
+                    <p>Co-ordinated a team of 20 members in an all India level hackathon and made sure we won the Champions title for 3 consecutive years.</p>
+                </div>
+
+                <div class="achievement-card">
+                    <div class="achievement-icon">🤖</div>
+                    <h3>AI Tooling Innovation</h3>
+                    <p>Pioneered the adoption of Cursor IDE workflows (Skills, Subagents, MCP) across the SDET organization, training 15+ engineers on AI-assisted test development and establishing reusable Cursor Skills for common QA patterns, reducing onboarding time for new automation engineers by ~50%.</p>
+                </div>
+
+                <div class="achievement-card">
+                    <div class="achievement-icon">🛡️</div>
+                    <h3>AI Safety</h3>
+                    <p>Conducted the first internal red-team assessment of a Trimble agentic-AI application — uncovered a catastrophic credential disclosure (Emergency Bypass PIN) and a system_prompt_overwrite API exploit; implemented mitigating guardrails that eliminated 100% of the API-exploitation and SSRF attack surface.</p>
+                </div>
+
+                <div class="achievement-card">
+                    <div class="achievement-icon">🎤</div>
+                    <h3>Tech Talks</h3>
+                    <p>Made India level presentations over the new explorations on QA grounds and have taken our Selenium/Cypress/RestAssured Automation Frameworks as horizontal services to various teams in Trimble India.</p>
+                </div>
+
+                <div class="achievement-card">
+                    <div class="achievement-icon">⚡</div>
+                    <h3>Test Efficiency</h3>
+                    <p>Reduced regression cycle by 90% with reusable test automation frameworks.</p>
+                </div>
+
+                <div class="achievement-card">
+                    <div class="achievement-icon">🐳</div>
+                    <h3>Containerization</h3>
+                    <p>Implemented Containerization across all the QA Automation Projects in Trimble Forestry, thereby reducing the cost involved in achieving Parallel test execution.</p>
+                </div>
+
+                <div class="achievement-card">
+                    <div class="achievement-icon">📊</div>
+                    <h3>RealTime Dashboards</h3>
+                    <p>Implemented a unified Real Time Dashboard using ElasticSearch and Kibana for all the QA Automation Projects across Trimble Forestry thereby providing all the Automation Projects a better/effective call to action.</p>
+                </div>
+
+                <div class="achievement-card">
+                    <div class="achievement-icon">🚪</div>
+                    <h3>Quality Gate</h3>
+                    <p>Developed a Quality Gate that comprises of all the QA Automation process that gets executed on a day. This quality gate includes UI, API, Performance, Security tests getting executed by a single click or during a scheduled execution.</p>
+                </div>
+
+                <div class="achievement-card">
+                    <div class="achievement-icon">👥</div>
+                    <h3>Leadership</h3>
+                    <p>Led a team of 4+ SDETs, mentoring them into senior roles within 2 years.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section class="education" id="education">
+        <div class="container">
+            <h2 class="section-title">Education</h2>
+            <div class="education-card">
+                <h3>B.E. (Electronics and Instrumentation Engineering)</h3>
+                <div class="education-details">
+                    <p><i class="fas fa-university"></i> <strong>College:</strong> St. Joseph's College of Engineering, Chennai</p>
+                    <p><i class="fas fa-calendar"></i> <strong>Year:</strong> 2009 – 2013</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/shailesh-puranik-48218a277" target="_blank" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="tel:+918939278247" aria-label="Phone">
+                    <i class="fas fa-phone"></i>
+                </a>
+            </div>
+            <p style="color: var(--text-secondary);">&copy; 2026 Shailesh Puranik. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <div class="scroll-top" id="scrollTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <script>
+        // Theme Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const html = document.documentElement;
+        const themeIcon = themeToggle.querySelector('i');
+
+        // Check for saved theme preference
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        html.setAttribute('data-theme', currentTheme);
+        updateThemeIcon(currentTheme);
+
+        themeToggle.addEventListener('click', () => {
+            const theme = html.getAttribute('data-theme');
+            const newTheme = theme === 'light' ? 'dark' : 'light';
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcon(newTheme);
+        });
+
+        function updateThemeIcon(theme) {
+            if (theme === 'dark') {
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+            } else {
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+            }
+        }
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking a link
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offsetTop = target.offsetTop - 80;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Scroll to Top Button
+        const scrollTopBtn = document.getElementById('scrollTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollTopBtn.classList.add('visible');
+            } else {
+                scrollTopBtn.classList.remove('visible');
+            }
+        });
+
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.querySelectorAll('.timeline-item, .project-card, .skill-category, .achievement-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
