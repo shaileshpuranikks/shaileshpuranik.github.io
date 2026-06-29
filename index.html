@@ -24,6 +24,7 @@
             --border-color: #e5e7eb;
             --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
             --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            --icon-filter: none;
         }
 
         [data-theme="dark"] {
@@ -38,6 +39,7 @@
             --border-color: #374151;
             --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
             --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 10px 10px -5px rgba(0, 0, 0, 0.3);
+            --icon-filter: invert(1) brightness(1.2);
         }
 
         body {
@@ -324,6 +326,69 @@
             border-color: var(--primary-color);
         }
 
+        /* Tools & Technologies Section */
+        .tools-section {
+            background: var(--bg-primary);
+            padding: 4rem 0;
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 3rem;
+            max-width: 1000px;
+            margin: 3rem auto;
+            padding: 2rem;
+        }
+
+        .tool-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: var(--bg-card);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow);
+        }
+
+        .tool-item:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .tool-logo {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+
+        .tool-item:hover .tool-logo {
+            transform: scale(1.1);
+        }
+
+        .tool-name {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .tools-grid {
+                grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+                gap: 1.5rem;
+                padding: 1rem;
+            }
+
+            .tool-logo {
+                width: 50px;
+                height: 50px;
+            }
+        }
+
         /* Experience Section */
         .experience {
             background: var(--bg-secondary);
@@ -464,6 +529,29 @@
             color: var(--text-secondary);
             margin-bottom: 1rem;
             line-height: 1.6;
+        }
+
+        .project-features {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0;
+        }
+
+        .project-features li {
+            color: var(--text-secondary);
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .project-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-weight: bold;
+            font-size: 1.1rem;
         }
 
         .project-tools {
@@ -713,6 +801,7 @@
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#skills">Skills</a></li>
+                <li><a href="#tools">Tools</a></li>
                 <li><a href="#experience">Experience</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#achievements">Achievements</a></li>
@@ -838,6 +927,95 @@
         </div>
     </section>
 
+    <!-- Tools & Technologies Section -->
+    <section class="tools-section" id="tools">
+        <div class="container">
+            <h2 class="section-title">Tools & Technologies</h2>
+            <div class="tools-grid">
+                <div class="tool-item">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" class="tool-logo">
+                    <span class="tool-name">Java</span>
+                </div>
+                <div class="tool-item">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" class="tool-logo">
+                    <span class="tool-name">JavaScript</span>
+                </div>
+                <div class="tool-item">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" class="tool-logo">
+                    <span class="tool-name">Python</span>
+                </div>
+                <div class="tool-item">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/selenium/selenium-original.svg" alt="Selenium" class="tool-logo">
+                    <span class="tool-name">Selenium</span>
+                </div>
+                <div class="tool-item">
+                    <img src="https://cdn.simpleicons.org/cypress/17202C" alt="Cypress" class="tool-logo">
+                    <span class="tool-name">Cypress</span>
+                </div>
+                <div class="tool-item">
+                    <img src="https://playwright.dev/img/playwright-logo.svg" alt="Playwright" class="tool-logo">
+                    <span class="tool-name">Playwright</span>
+                </div>
+                <div class="tool-item">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker" class="tool-logo">
+                    <span class="tool-name">Docker</span>
+                </div>
+                <div class="tool-item">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg" alt="Kubernetes" class="tool-logo">
+                    <span class="tool-name">Kubernetes</span>
+                </div>
+                <div class="tool-item">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jenkins/jenkins-original.svg" alt="Jenkins" class="tool-logo">
+                    <span class="tool-name">Jenkins</span>
+                </div>
+                <div class="tool-item">
+                    <img src="https://cdn.simpleicons.org/githubactions/2088FF" alt="GitHub Actions" class="tool-logo">
+                    <span class="tool-name">GitHub Actions</span>
+                </div>
+                <div class="tool-item">
+                    <img src="https://cdn.simpleicons.org/bamboo/0052CC" alt="Bamboo" class="tool-logo">
+                    <span class="tool-name">Bamboo</span>
+                </div>
+                <div class="tool-item">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" class="tool-logo">
+                    <span class="tool-name">Git</span>
+                </div>
+                <div class="tool-item">
+                    <img src="https://cdn.simpleicons.org/jira/0052CC" alt="Jira" class="tool-logo">
+                    <span class="tool-name">Jira</span>
+                </div>
+                <div class="tool-item">
+                    <img src="https://cdn.simpleicons.org/postman/FF6C37" alt="Postman" class="tool-logo">
+                    <span class="tool-name">Postman</span>
+                </div>
+                <div class="tool-item">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" alt="AWS" class="tool-logo">
+                    <span class="tool-name">AWS</span>
+                </div>
+                <div class="tool-item">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg" alt="Azure" class="tool-logo">
+                    <span class="tool-name">Azure</span>
+                </div>
+                <div class="tool-item">
+                    <img src="https://cdn.simpleicons.org/apachejmeter/D22128" alt="JMeter" class="tool-logo">
+                    <span class="tool-name">JMeter</span>
+                </div>
+                <div class="tool-item">
+                    <img src="https://cdn.simpleicons.org/notion" alt="Notion" class="tool-logo" style="filter: var(--icon-filter, none);">
+                    <span class="tool-name">Notion</span>
+                </div>
+                <div class="tool-item">
+                    <img src="https://cdn.simpleicons.org/cursor" alt="Cursor" class="tool-logo" style="filter: var(--icon-filter, none);">
+                    <span class="tool-name">Cursor IDE</span>
+                </div>
+                <div class="tool-item">
+                    <img src="https://cdn.simpleicons.org/langchain/1C3C3C" alt="LangSmith" class="tool-logo">
+                    <span class="tool-name">LangSmith</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Experience Section -->
     <section class="experience" id="experience">
         <div class="container">
@@ -945,9 +1123,34 @@
             <h2 class="section-title">Featured Projects</h2>
             <div class="projects-grid">
                 <div class="project-card">
+                    <h3>Common Platform Services (CPS)</h3>
+                    <span class="project-role">Staff SDET</span>
+                    <p class="project-description">Foundational infrastructure powering all Trimble Forestry applications through shared, multi-tenant services. CPS serves as the central backbone that provides:</p>
+                    <ul class="project-features">
+                        <li><strong>Master Data Management:</strong> Centralized storage and management of Company, Product, and Destination data across the platform</li>
+                        <li><strong>Reference Data Services:</strong> Standardized Enumeration and Unit of Measure definitions shared by all forestry applications</li>
+                        <li><strong>Platform Configuration:</strong> Global Preference management enabling consistent settings across services</li>
+                        <li><strong>Shared Code Libraries:</strong> CF-Core library and Trimble.Forestry.Platform NuGet packages used by every Forestry microservice</li>
+                    </ul>
+                    <div class="project-tools">
+                        <span class="tool-tag">Playwright</span>
+                        <span class="tool-tag">RestAssured</span>
+                        <span class="tool-tag">TestNG</span>
+                        <span class="tool-tag">GitHub Actions</span>
+                        <span class="tool-tag">Apache Kafka</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
                     <h3>Connected Forest SSO</h3>
                     <span class="project-role">SDET Lead / Staff SDET</span>
-                    <p class="project-description">The Connected Forest SSO system secures user authentication across multiple applications with a single login, simplifies user management, integrates with identity providers, supports standard protocols, and ensures a seamless user experience.</p>
+                    <p class="project-description">A centralized Single Sign-On platform for Trimble Connected Forest® applications serving the forestry supply chain. This application is the identity and access management hub that allows users to:</p>
+                    <ul class="project-features">
+                        <li>Log in once and access multiple forestry applications seamlessly</li>
+                        <li>Manage organizations, users, roles, and permissions from one place</li>
+                        <li>Control application access through subscription/license management</li>
+                        <li>Process payments and track subscription lifecycles</li>
+                    </ul>
                     <div class="project-tools">
                         <span class="tool-tag">Selenium</span>
                         <span class="tool-tag">RestAssured</span>
@@ -962,7 +1165,13 @@
                 <div class="project-card">
                     <h3>Datasync</h3>
                     <span class="project-role">SDET Lead / Staff SDET</span>
-                    <p class="project-description">Enterprise data synchronization platform ensuring real-time data consistency across multiple systems and applications within the Trimble ecosystem.</p>
+                    <p class="project-description">An automated database backup and synchronization service that seamlessly backs up and restores application data from database servers to cloud infrastructure.</p>
+                    <ul class="project-features">
+                        <li><strong>Web-based Management Console:</strong> Configure backup agents, schedules, and monitor backup status across all environments</li>
+                        <li><strong>Cross-Platform Backup Agents:</strong> Desktop applications and background services supporting Windows, Linux, and macOS database servers</li>
+                        <li><strong>Cloud Integration:</strong> Azure Service Bus for reliable messaging and Azure Blob Storage for secure backup storage</li>
+                        <li><strong>Flexible Backup Workflows:</strong> Supports both scheduled automated backups and on-demand backup/restore operations</li>
+                    </ul>
                     <div class="project-tools">
                         <span class="tool-tag">Cypress</span>
                         <span class="tool-tag">RestAssured</span>
@@ -1039,12 +1248,6 @@
                     <div class="achievement-icon">🎤</div>
                     <h3>Tech Talks</h3>
                     <p>Made India level presentations over the new explorations on QA grounds and have taken our Selenium/Cypress/RestAssured Automation Frameworks as horizontal services to various teams in Trimble India.</p>
-                </div>
-
-                <div class="achievement-card">
-                    <div class="achievement-icon">⚡</div>
-                    <h3>Test Efficiency</h3>
-                    <p>Reduced regression cycle by 90% with reusable test automation frameworks.</p>
                 </div>
 
                 <div class="achievement-card">
@@ -1210,4 +1413,3 @@
     </script>
 </body>
 </html>
-
